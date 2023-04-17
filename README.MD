@@ -9,7 +9,8 @@
 
 # Introduction
 
-Terraform module to deploy AWS ECS EC2
+Terraform module for AWS ECS Deployment with the EC2
+
 # Core Components
 
 ## AWS
@@ -20,7 +21,7 @@ _The following components are deployed:_
 
 1. Application Load Balancer 
 2. ECS Cluster / ECS Service 
-3. security groups
+3. Security Groups
 4. AutoScaling
 
 # Usage
@@ -41,12 +42,12 @@ module "ecs-dev" {
    container_port = each.value.container_port
    task_environment_variables = each.value.envs
    env_value = each.value.envs
-   vpc_id = var.vpc_id
-   pub_subnet_ids = var.pub_subnet_ids
-   priv_subnet_ids = var.priv_subnet_ids
+   vpc_id = module.vpc.vpc_id
+   pub_subnet_ids = module.vpc.public_subnets
+   priv_subnet_ids = module.vpc.private_subnets
    cluster_arn = aws_ecs_cluster.example_cluster.id
    cluster_name = aws_ecs_cluster.example_cluster.name
-}
+ } 
 
 ```
 
