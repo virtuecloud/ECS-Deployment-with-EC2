@@ -2,8 +2,6 @@ aws_region = "us-east-1"
 cluster_name = "testcluster"
 # cluster_arn= "arn:aws:ecs:us-east-1:597544333513:cluster/bhub-frontend-dev" 
 # log_name = "poc_log"
-
-
 containers={
 
     container1={
