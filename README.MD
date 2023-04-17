@@ -10,11 +10,6 @@
 # Introduction
 
 Terraform module to deploy AWS ECS EC2
-
-# Architecture Diagram
-![ECS_Architecture](https://user-images.githubusercontent.com/75137939/229099446-b36bdd97-b1dd-412d-8ba3-0899c1e367de.png)
-
-
 # Core Components
 
 ## AWS
@@ -102,13 +97,17 @@ containers={
 
 # Outputs
 
-|Name              |Description                        |                                    
-|------------------|-----------------------            |                
-|container_name    |Name that identifies the container |                   
-|cluster_arn       |ARN that identifies the cluster    |                                                 
-
-
-
+|Name                  |Description                        |                                    
+|----------------------|-----------------------------------|                
+|ecs_cluster_name      |Name that identifies the cluster   |                   
+|ecs_cluster_arn       |ARN that identifies the cluster    |                                                 
+|loadbalancer_dns_name |The DNS name of the load balancer  |
+|loadbalancer_arn      |The ID and ARN of the load balancer we created |
+|alb-sg-name           |The name of the security group of Loadbalancer |
+|alb-sg-arn            |The ARN of the security group of Loadbalancer|
+|ecs-sg-name           |The name of the security group of ECS|
+|ecs-sg-arn            |The ARN of the security group of ECS |
+|service_name          |Name of the ECS Service created |
 
 
 
