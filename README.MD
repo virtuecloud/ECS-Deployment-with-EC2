@@ -30,7 +30,7 @@ _The following components are deployed:_
 
 ```hcl
 module "ecs-dev" {
-   source = "./module"
+   source = "git::https://github.com/virtuecloud/ECS-Deployment-with-Fargate-using-Terraform.git//module"
    depends_on=[ aws_ecs_cluster.example_cluster ]
    for_each = var.containers
    image_name = each.value.image_name
