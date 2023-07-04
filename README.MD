@@ -28,7 +28,7 @@ _The following components are deployed:_
 
 ## ECS Module
 
-```
+```hcl
 module "ecs-dev" {
    source = "./module"
    depends_on=[ aws_ecs_cluster.example_cluster ]
@@ -56,7 +56,7 @@ module "ecs-dev" {
 # Note:
 We did mapping in terraform.tfvars as:
 
-```
+```hcl
 vpc_id = "vpc-00c64060b3ce325fb"
 pub_subnet_ids = ["subnet-0c3f8f6c0ab751452","subnet-0d88ccc1ef1c546a8","subnet-0315254f89b69b4c7"]
 priv_subnet_ids= ["subnet-03834cfd9c6c45f70","subnet-03d282acf75f02722","subnet-055634ea4ba607d4e"]
