@@ -47,7 +47,7 @@ resource "aws_launch_configuration" "ecs_launch_config" {
       EOF
 
     instance_type        = "t3.medium"
-    key_name             = "testt"
+  #  key_name             = "testt"
     lifecycle {
        create_before_destroy = true
     }
