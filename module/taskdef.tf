@@ -1,5 +1,4 @@
  resource "aws_ecs_task_definition" "example_task_def" {
-  /* depends_on = [aws_cloudwatch_log_group.example_cw_log_group] */
   family = var.ecs_service_name
   container_definitions = jsonencode(
 [

@@ -9,8 +9,7 @@ module "vpc" {
   public_subnets  = ["10.0.101.0/24", "10.0.102.0/24"]
 
   enable_nat_gateway = true
-  enable_vpn_gateway = true
-  enable_dns_hostnames = true
+  single_nat_gateway = true
 
   tags = {
     Terraform = "true"
@@ -23,7 +22,8 @@ resource "aws_ecs_cluster" "example_cluster" {
 }
 
 module "ecs-dev" {
-   source = "./module"
+   source = "git::https://github.com/virtuecloud/ECS-Deployment-with-EC2-using-Terraform.git//module"
+
    depends_on=[ aws_ecs_cluster.example_cluster ]
    for_each = var.containers
    image_name = each.value.image_name
@@ -40,5 +40,4 @@ module "ecs-dev" {
    priv_subnet_ids = module.vpc.private_subnets
    cluster_arn = aws_ecs_cluster.example_cluster.id
    cluster_name = aws_ecs_cluster.example_cluster.name
-   /* cert_arn = each.value.cert_arn  */
  } 
